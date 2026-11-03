@@ -1,0 +1,84 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "keybars",
+  "description": "keybars Pro from Raycast: start and stop Focus, change what the keyboard plays, turn its lights on and off, and Focus in the menu bar.",
+  "categories": [
+    "Developer Tools",
+    "Productivity"
+  ],
+  "license": "MIT",
+  "author": "jwarykowski",
+  "type": "module",
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "check": "tsc --noEmit",
+    "lint": "oxlint",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "test": "node --experimental-strip-types --no-warnings --test 'src/**/*.test.ts'",
+    "publish": "npx @raycast/api@latest publish"
+  },
+  "dependencies": {
+    "@raycast/api": "2.8.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "oxfmt": "0.73.0",
+    "oxlint": "1.88.0",
+    "typescript": "^5.9.3"
+  },
+  "icon": "icon.png",
+  "commands": [
+    {
+      "name": "focus-start",
+      "title": "Start Focus",
+      "description": "Start keybars Pro's Focus timer.",
+      "mode": "no-view",
+      "arguments": [
+        {
+          "name": "minutes",
+          "type": "text",
+          "placeholder": "minutes",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "focus-stop",
+      "title": "Stop Focus",
+      "description": "Stop keybars Pro's Focus timer.",
+      "mode": "no-view"
+    },
+    {
+      "name": "toggle",
+      "title": "Toggle Keyboard Lights",
+      "description": "Turn keybars Pro's lights on, or hand the keyboard back to its layout.",
+      "mode": "no-view"
+    },
+    {
+      "name": "play",
+      "title": "Play",
+      "description": "Choose what the keyboard plays: the equaliser, Ambient, Typing or System.",
+      "mode": "view"
+    },
+    {
+      "name": "menu-bar",
+      "title": "keybars in the Menu Bar",
+      "description": "The Focus timer in the menu bar, with Focus, modes and the lights a click away.",
+      "mode": "menu-bar",
+      "interval": "1m"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "command",
+      "title": "keybars-pro command",
+      "description": "Where keybars-pro is, if it isn't in /usr/local/bin or ~/.local/bin.",
+      "type": "textfield",
+      "required": false
+    }
+  ],
+  "title": "keybars"
+}
